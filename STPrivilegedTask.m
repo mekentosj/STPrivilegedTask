@@ -32,6 +32,10 @@
 #import <unistd.h>
 #import <dlfcn.h>
 
+#if __has_feature(objc_arc)
+#error Must compile STPrivilegeTask with -fno-objc-arc
+#endif
+
 /* New error code denoting that AuthorizationExecuteWithPrivileges no longer exists */
 OSStatus const errAuthorizationFnNoLongerExists = -70001;
 
