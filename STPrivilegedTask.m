@@ -220,7 +220,7 @@ OSStatus const errAuthorizationFnNoLongerExists = -70001;
     // first, construct an array of c strings from NSArray w. arguments
     for (i = 0; i < argumentsCount; i++) 
     {
-        NSString *theString = [arguments objectAtIndex:i];
+        NSString *theString = arguments[i];
         unsigned int stringLength = (unsigned int)[theString length];
         
         args[i] = malloc((stringLength + 1) * sizeof(char));
@@ -300,7 +300,7 @@ OSStatus const errAuthorizationFnNoLongerExists = -70001;
     NSString *cmd = [self launchPath];
     int i;
     for (i = 0; i < [args count]; i++)
-        cmd = [cmd stringByAppendingFormat: @" %@", [args objectAtIndex: i]];
+        cmd = [cmd stringByAppendingFormat: @" %@", args[i]];
     
     return [[super description] stringByAppendingFormat: @" %@", cmd];
 }
